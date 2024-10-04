@@ -1,0 +1,99 @@
++--------------------+
+|       Loan         |
++--------------------+
+| - loanId: String   |
+| - borrowerName: String |
+| - principal: double |
+| - interestRate: double |
+| - balance: double   |
++--------------------+
+| + Loan(loanId: String, borrowerName: String, principal: double, interestRate: double) |
+| + getLoanId(): String |
+| + makeRepayment(amount: double): void |
+| + getRemainingBalance(): double |
++--------------------+
+
+
++--------------------+
+|      BankApp       |
++--------------------+
+| - loans: List<Loan> |
++--------------------+
+| + makeRepayment(): void |
+| + takeLoan(): void |
+| + manageLoans(): void |
+| + getValidDoubleInput(prompt: String): double |
++--------------------+
+
+
++-------------------------------+
+| InsufficientFundsException    |
++-------------------------------+
+| - message: String             |
++-------------------------------+
+| + InsufficientFundsException(message: String) |
++-------------------------------+
+| <<extends>>                  |
+| RuntimeException             |
++-------------------------------+
+
++-------------------------------+
+| InvalidInputException         |
++-------------------------------+
+| - message: String             |
++-------------------------------+
+| + InvalidInputException(message: String) |
++-------------------------------+
+| <<extends>>                  |
+| RuntimeException             |
++-------------------------------+
+
+
++----------------------------------+
+|        CheckingAccount           |
++----------------------------------+
+| - overdraftLimit: double         |
++----------------------------------+
+| + CheckingAccount(accountNumber: String, accountHolder: String, balance: double, overdraftLimit: double) |
++----------------------------------+
+| <<extends>>                     |
+|            Account              |
++----------------------------------+
+
+
++-------------------------------+
+|            Account            |
++-------------------------------+
+| - accountNumber: String       |
+| - accountHolder: String       |
+| - balance: double             |
+| - accountType: String         |
++-------------------------------+
+| + Account(accountNumber: String, accountHolder: String, balance: double, accountType: String) |
++-------------------------------+
+
+
++-----------------------------------+
+|           SavingsAccount          |
++-----------------------------------+
+| - interestRate: double            |
++-----------------------------------+
+| + SavingsAccount(accountNumber: String, accountHolder: String, balance: double, interestRate: double) |
+| + applyInterest(): void           |
++-----------------------------------+
+| <<extends>>                      |
+|             Account              |
++-----------------------------------+
+
+
++-----------------------------------+
+|           CreditAccount           |
++-----------------------------------+
+| - creditLimit: double             |
++-----------------------------------+
+| + CreditAccount(accountNumber: String, accountHolder: String, balance: double, creditLimit: double) |
+| + getAvailableCredit(): double     |
++-----------------------------------+
+| <<extends>>                      |
+|             Account              |
++-----------------------------------+
